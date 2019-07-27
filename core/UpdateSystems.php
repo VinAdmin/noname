@@ -5,6 +5,7 @@
  * @package    NoName
  * @subpackage Update
  * @author     Ольхин Виталий <volkhin@texnoblog.uz>
+ * @version    0.1
  * @copyright  (C) 2019
  */
 namespace app\core;
@@ -87,7 +88,6 @@ class UpdateSystems
         }
         else {
             // неудача
-            //echo "неудача";
             
             return 0;
         }
@@ -98,7 +98,7 @@ class UpdateSystems
      **/
     public function Update()
     {
-        $ReadFileJson = file_get_contents($this->uploaddir.'info_update.json');
+        $ReadFileJson = file_get_contents($this->tmp.'info_update.json');
         $array = json_decode($ReadFileJson, true);
         
         $lick = docroot();
@@ -114,7 +114,6 @@ class UpdateSystems
             
             if(!copy($copy.$file['dir'].$file['file'], $lick.$file['dir'].$file['file']))
             {
-                return 0;
             }
         }
         
