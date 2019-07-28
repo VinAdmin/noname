@@ -44,7 +44,7 @@ class UpdateSystems
         $head = json_decode($head, true);
         
         //Проверка версий 
-        if($arr['version'] == $head['version']){
+        if((string)$arr['version'] == (string)$head['version']){
             //Нет новой версии
             return 0;
         }
