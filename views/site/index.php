@@ -1,6 +1,33 @@
 <?php
 $this->title = "1234";
+
+$file['files'][] = array('dir'=>'', 'file'=>'');
 ?>
+
+<div class="row">
+    <div class="col-lg-12">
+        <form name="files_json" method="post" action="">
+            <div class="row">
+                <div class="col-lg-1">
+                    <input type="text" name="ver" class="form-control" value="<?=$file['ver']?>" placeholder="Версия">
+                </div>
+            </div>
+            
+            <?php $a = 0; foreach($file['files'] as $files) : ?>
+            <div class="row">
+                <div class="col-lg-4">
+                    <input type="text" name="files[<?=$a?>][dir]" class="form-control" value="<?=$files['dir']?>" placeholder="Путь">
+                </div>
+                <div class="col-lg-5">
+                    <input type="text" name="files[<?=$a?>][file]" class="form-control" value="<?=$files['file']?>" placeholder="Файл">
+                </div>
+            </div>
+            <?php $a ++; endforeach ?>
+            <button class="btn btn-primary">Сохранить</button>
+        </form>
+    </div>
+</div>
+
 <div id="loading">
     <div id="loading-center">
         <div id="loading-center-absolute">

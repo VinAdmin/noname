@@ -12,9 +12,5 @@ namespace app\core;
 use app\core\View;
 
 class Controller extends View{
-	function render($view, $data = null)
-	{
-		$this->generate($view, $data);
-	}
 }
 ?>

@@ -135,5 +135,31 @@ class UpdateSystems
         }
         rmdir($dir);
     }
+    
+    public function FileJson()
+    {
+        $ReadFileJson = file_get_contents(docroot().'/core/UpdateSyatems/info_update.json');
+        $array = json_decode($ReadFileJson, true);
+        return $array;
+    }
+    
+    public function InfoUpdateFile($array)
+    {
+        print_r($array);
+        foreach($array['files'] as $key => $line)
+        {
+            if(empty($line['dir']) || empty($line['file']))
+            {
+                unset($array['files'][$key]);
+            }
+        }
+        
+        $update = json_encode($array);
+        echo $update;
+        
+        $fd = fopen(docroot()."/core/UpdateSyatems/info_update.json", 'w') or die("не удалось создать файл");
+        fwrite($fd, $update);
+        fclose($fd);
+    }
 }
 ?>

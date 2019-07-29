@@ -22,8 +22,9 @@ class View extends Heder
 		include_once docroot().'/views/site/main.php';
 	}
 	
-	function generate($template_view, $content = null,  $data = null)
+	function generate($template_view, $array)
 	{
+		extract($array);
 		ob_start();
 		include_once(docroot().$template_view);
 		$this->views = ob_get_contents();

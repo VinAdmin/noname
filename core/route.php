@@ -15,32 +15,38 @@ class Route
 {
 	static function run()
 	{
-		// контроллер и действие по умолчанию
-		$controller_name = 'SiteController';
-		$action_name = 'index';
-		
 		$routes = explode('/', $_SERVER['REQUEST_URI']);
-
+		//$routes = mb_substr($_SERVER['REQUEST_URI'], 1);
+		
 		// получаем имя контроллера
-		if ( !empty($routes[1]) )
-		{	
-			$controller_name = $routes[1];
+		if(empty($routes[1])){
+			// контроллер и действие по умолчанию
+			$controller_name = 'siteController';
+		}
+		else{
+			if($routes[1] == 'site')
+			{
+				$controller_name = $routes[1];
+			}
 		}
 		
 		// получаем имя экшена
-		if ( !empty($routes[2]) )
-		{
+		if (empty($routes[2])){
+			$action_name = 'index';
+		}
+		else{
 			$action_name = $routes[2];
 		}
 		
 		$controller_name = $controller_name;
 		
-		$action_name = 'action'.$action_name;
+		$action_name = ''.$action_name;
 
 		// подцепляем файл с классом контроллера
 		$controller_file = strtolower($controller_name).'.php';
 		$controller_path = docroot()."/controllers/".$controller_file;
 		
+		//Проверка контроллера
 		if(file_exists($controller_path))
 		{
 			include_once docroot()."/controllers/".$controller_file;
@@ -56,7 +62,7 @@ class Route
 		
 		// создаем контроллер
 		$controller = new $controller_name;
-		$action = $action_name;
+		$action = 'action'.$action_name;
 		if(method_exists($controller, $action))
 		{
 			// вызываем действие контроллера
