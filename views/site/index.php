@@ -4,22 +4,38 @@ $this->title = "1234";
 $file['files'][] = array('dir'=>'', 'file'=>'');
 ?>
 
+<h2>Форма контроля версий файлов</h2>
+
+<?php if($message) : ?>
+<div class="alert alert-info"><?=$message?></div>
+<?php endif ?>
+
 <div class="row">
     <div class="col-lg-12">
         <form name="files_json" method="post" action="">
-            <div class="row">
-                <div class="col-lg-1">
-                    <input type="text" name="ver" class="form-control" value="<?=$file['ver']?>" placeholder="Версия">
+            <div class="form-group">
+                <div class="row" >
+                    <div class="col-lg-2">
+                        <label>Имя проекта</label>
+                        <input type="text" name="project" class="form-control" value="<?=$file['project']?>">
+                    </div>
+                    
+                    <div class="col-lg-2">
+                        <label>Номер версии</label>
+                        <input type="text" name="version" class="form-control" value="<?=$file['version']?>" placeholder="Версия">
+                    </div>
                 </div>
             </div>
             
             <?php $a = 0; foreach($file['files'] as $files) : ?>
-            <div class="row">
-                <div class="col-lg-4">
-                    <input type="text" name="files[<?=$a?>][dir]" class="form-control" value="<?=$files['dir']?>" placeholder="Путь">
-                </div>
-                <div class="col-lg-5">
-                    <input type="text" name="files[<?=$a?>][file]" class="form-control" value="<?=$files['file']?>" placeholder="Файл">
+            <div class="form-group">
+                <div class="row" class="form-group">
+                    <div class="col-lg-6">
+                        <input type="text" name="files[<?=$a?>][dir]" class="form-control" value="<?=$files['dir']?>" placeholder="Путь">
+                    </div>
+                    <div class="col-lg-3">
+                        <input type="text" name="files[<?=$a?>][file]" class="form-control" value="<?=$files['file']?>" placeholder="Файл">
+                    </div>
                 </div>
             </div>
             <?php $a ++; endforeach ?>
