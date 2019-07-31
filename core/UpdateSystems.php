@@ -15,12 +15,13 @@ use FilesystemIterator;
 
 class UpdateSystems
 {
+    private $fileVersion = 'core/version.ini';
     //Корневое имя проекта
     public $globalDir = null;
     //Путь ресурса для получения верссии обновления
-    private $url = 'http://texno.loc/index.php';
+    private $url;
     //Путь к архиву с обновлением
-    private $link = 'http://texno.loc/update.zip';
+    private $link;
     //Путь для временного каталога
     private $tmp;
     //Путь генерации обновлений
@@ -35,6 +36,10 @@ class UpdateSystems
      **/
     function __construct($projectName = null)
     {
+        //Конфигурационный файл
+        $arr = parse_ini_file('update_systems_config.ini');
+        $this->url = $arr['URL'];
+        $this->link = $arr['LINK'];
         $this->globalDir = $projectName;
         $this->tmp = docroot().'/tmp/';
         $this->linkFolderUpdate = docroot().'/core/UpdateSystems/project/'.$this->globalDir.'/files';
@@ -58,7 +63,7 @@ class UpdateSystems
         curl_close($ch);
         
         //Парсим файл с текущей версией сайта
-        $arr = parse_ini_file(docroot()."/core/version.ini");
+        $arr = parse_ini_file($this->fileVersion);
         //Переводим json в массив
         $head = json_decode($head, true);
         
