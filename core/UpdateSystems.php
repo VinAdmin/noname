@@ -244,10 +244,12 @@ class UpdateSystems
                 }
                 
                 $fileZip[] = $line['dir'].$line['file'];
+                
+                $array['files'][$key]['size'] = filesize('../'.$this->globalDir.$line['dir'].$line['file']);
             }
         }
         
-        $update = json_encode($array);
+        $update = json_encode($array, JSON_PRETTY_PRINT);
         
         //Перезапись или создание файла
         $info_json = fopen(docroot()."/core/UpdateSystems/project/".$this->globalDir."/info_update.json", 'w');

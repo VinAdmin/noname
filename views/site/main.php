@@ -23,7 +23,7 @@
         <!-- Stylesheet
         ================================================== -->
         <!-- Switcher Only -->
-        <link rel="stylesheet" id="switcher-css" type="text/css" href="styleswitcher/switcher.css" media="all" property=""/>
+        <link rel="stylesheet" id="switcher-css" type="text/css" href="/web/styleswitcher/switcher.css" media="all" property=""/>
         
          <!-- Pre-Define Custom Style Sheet
         ================================================== -->
@@ -35,7 +35,7 @@
         <link rel="alternate stylesheet" href="/web/assets/theme/yellow.css" title="yellow" media="all" property="">
         
         
-        <script type="text/javascript" src="assets/js/modernizr.custom.js"></script><!-- Modernizr -->
+        <script type="text/javascript" src="/web/assets/js/modernizr.custom.js"></script><!-- Modernizr -->
         
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -44,22 +44,66 @@
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
-    <?=$this->views?>
     <body>
-        <!-- Footer Section
-       ====================================-->
-           <div id="tf-footer" class="text-center">
-               <ul class="list-inline social-media">
-                   <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                   <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                   <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                   <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                   <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                   <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                   <li><a href="#"><i class="fa fa-behance"></i></a></li>
-               </ul>
-               <p class="copyright">© 2016 kabir. All rights reserved. Designed by ilmosys</p>
-           </div>
+        <div id="loading">
+            <div id="loading-center">
+                <div id="loading-center-absolute">
+                    <div id="object"></div>
+                </div>
+            </div>
+        </div>
+        <div class="animsition">
+            <!-- Main Navigation/Menu====================================-->
+            <nav id="tf-menu" class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <div class="menu-wrapper">
+                        <div class="navbar-header">
+                            <a class="navbar-brand logo" href="#">NoName</a>
+                        </div>  
+                        <a href="#" class="menu-toggle" data-toggle="modal" data-target=".menupopup">
+                            <div class="menu-pop">
+                                <i class="icon ion-drag"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+            
+            <!-- Modal Menu====================================-->
+            <div id="menuOne">
+                <div class="modal fade menupopup" tabindex="-1" role="dialog">
+                    <div class="modal-ovelay"><!-- modal-ovelay -->
+                        <div class="close-text" data-dismiss="modal" aria-label="Close"><i class="icon ion-close-round"></i></div>
+                        <ul class="list-unstyled menu-lists">
+                            <li class="active"><a href="home1.html">Home</a></li>
+                            <li><a href="/#about">About</a></li>
+                            <li><a href="/#resume">Resume</a></li>
+                            <li><a href="/#portfolio">Portfolio</a></li>
+                            <li><a href="/#services">Services</a></li>
+                            <li><a href="/#pricing ">Pricing </a></li>
+                            <li><a href="blog1.html">Blog</a></li>
+                            <li><a href="/#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <?=$this->views?>
+        </div>
+        <!-- Footer Section====================================-->
+        <div id="tf-footer" class="text-center">
+            <!--
+            <ul class="list-inline social-media">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+            </ul>-->
+            <p class="copyright">© 2019 NoName.</p>
+        </div>
    
      <!-- Javascripts
        ================================================== -->
@@ -76,24 +120,25 @@
        <script type="text/javascript" src="/web/assets/js/main.js"></script>
        
         <!--Demo Switcher-->
-       <div class="demo_changer">
-           <div class="demo-icon"></div>
-           <div class="form_holder">
-               <p>Choose color</p>
-               <div class="predefined_styles">
-                   <a href="#" data-rel="green" class="styleswitch"><div class="green"></div></a>
-                   <a href="#" data-rel="indigo" class="styleswitch"><div class="indigo"></div></a>
-                   <a href="#" data-rel="hot-pink" class="styleswitch"><div class="hot-pink"></div></a>
-                   <a href="#" data-rel="orient" class="styleswitch"><div class="orient"></div></a>
-                   <a href="#" data-rel="red" class="styleswitch"><div class="red"></div></a> 
-                   <a href="#" data-rel="yellow" class="styleswitch"><div class="yellow"></div></a>   
-               </div>          
-           </div>
-       </div>
-       <!-- END Switcher -->
+        <!--
+        <div class="demo_changer">
+            <div class="demo-icon"></div>
+            <div class="form_holder">
+                <p>Choose color</p>
+                <div class="predefined_styles">
+                    <a href="#" data-rel="green" class="styleswitch"><div class="green"></div></a>
+                    <a href="#" data-rel="indigo" class="styleswitch"><div class="indigo"></div></a>
+                    <a href="#" data-rel="hot-pink" class="styleswitch"><div class="hot-pink"></div></a>
+                    <a href="#" data-rel="orient" class="styleswitch"><div class="orient"></div></a>
+                    <a href="#" data-rel="red" class="styleswitch"><div class="red"></div></a> 
+                    <a href="#" data-rel="yellow" class="styleswitch"><div class="yellow"></div></a>   
+                </div>          
+            </div>
+        </div>-->
+        <!-- END Switcher -->
        
        <!-- Demo Switcher JS -->
-       <script type="text/javascript" src="/web/styleswitcher/fswit.js"></script>
+       <!--<script type="text/javascript" src="/web/styleswitcher/fswit.js"></script>-->
     </body>
 
 </html>

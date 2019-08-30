@@ -1043,7 +1043,9 @@ ul.client-logos li{ margin: 40px 60px;}
 =========================*/
 #blog-post{
 	padding-bottom:8%;
-	background:#FFF;
+	background:#BDECED;
+  background-image: url('/web/assets/img/services/s1200_2.webp');
+  opacity: 0.9;
 }
 .post-block {
   position: relative;
@@ -1354,3 +1356,13 @@ ul.social-media > li >a >i.fa:hover{
 -o-transition: all 0.5s ease;
 transition: all 0.5s ease;
 	}
+.block-update{
+    margin-top: 50px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    opacity: 2.9;
+}
+.title-update{
+    color: #000000;
+}
+

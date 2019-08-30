@@ -34,6 +34,7 @@ class SiteController extends Controller
         }
         
         $file = $info_update->FileJson();
+        arsort($file['files']);
         
         $this->generate('/views/site/index.php',compact('file', 'message'));
         return true;
