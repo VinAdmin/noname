@@ -75,8 +75,8 @@
                     <div class="modal-ovelay"><!-- modal-ovelay -->
                         <div class="close-text" data-dismiss="modal" aria-label="Close"><i class="icon ion-close-round"></i></div>
                         <ul class="list-unstyled menu-lists">
-                            <li class="active"><a href="home1.html">Home</a></li>
-                            <li><a href="/#about">About</a></li>
+                            <li class="active"><a href="/">Главная</a></li>
+                            <li><a href="site/generate_class_php">Генератор PHP класса</a></li>
                             <li><a href="/#resume">Resume</a></li>
                             <li><a href="/#portfolio">Portfolio</a></li>
                             <li><a href="/#services">Services</a></li>

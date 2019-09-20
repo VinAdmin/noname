@@ -16,7 +16,6 @@ class Route
 	static function run()
 	{
 		$routes = explode('/', $_SERVER['REQUEST_URI']);
-		//$routes = mb_substr($_SERVER['REQUEST_URI'], 1);
 		
 		// получаем имя контроллера
 		if(empty($routes[1])){
@@ -24,10 +23,7 @@ class Route
 			$controller_name = 'siteController';
 		}
 		else{
-			if($routes[1] == 'site')
-			{
-				$controller_name = $routes[1];
-			}
+			$controller_name = $routes[1].'Controller';
 		}
 		
 		// получаем имя экшена

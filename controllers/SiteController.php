@@ -45,5 +45,11 @@ class SiteController extends Controller
         $this->render('/views/site/edit_json.php');
         return true;
     }
+    
+    public function actionGenerate_class_php()
+    {
+        $this->generate('/views/site/generate_class_php.php');
+        return true;
+    }
 }
 ?>

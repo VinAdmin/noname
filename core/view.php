@@ -22,10 +22,12 @@ class View extends Heder
 		include_once docroot().'/views/site/main.php';
 	}
 	
-	function generate($template_view, $array)
+	function generate($template_view, $array = null)
 	{
-		extract($array);
-		ob_start();
+		if($array){
+			extract($array);
+			ob_start();
+		}
 		include_once(docroot().$template_view);
 		$this->views = ob_get_contents();
 		ob_end_clean();
