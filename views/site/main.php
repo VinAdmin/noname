@@ -58,7 +58,7 @@
                 <div class="container">
                     <div class="menu-wrapper">
                         <div class="navbar-header">
-                            <a class="navbar-brand logo" href="#">NoName</a>
+                            <a class="navbar-brand logo" href="#"><?=app\core\Lang::CoreTranslate()['ENGINE_NAME']?></a>
                         </div>  
                         <a href="#" class="menu-toggle" data-toggle="modal" data-target=".menupopup">
                             <div class="menu-pop">
@@ -102,7 +102,7 @@
                 <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
                 <li><a href="#"><i class="fa fa-behance"></i></a></li>
             </ul>-->
-            <p class="copyright">© 2019 NoName.</p>
+            <p class="copyright">© 2019 <?=app\core\Lang::CoreTranslate()['ENGINE_NAME']?>.</p>
         </div>
    
      <!-- Javascripts

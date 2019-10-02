@@ -10,6 +10,7 @@
 
 $config = array(
     'project_name' => 'Имя проекта',
+	'lang' => 'en-EN',
     'db_conf' => [
         'server'   => '',
         'user'     => '',
